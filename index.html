@@ -5,161 +5,393 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>What Does an Algorithmic Choice demonstrate? | Nuno Valenzuela Alonso</title>
+  <title>What Does an Algorithmic Choice Demonstrate? | Nuno Valenzuela Alonso</title>
 
-  <meta name="description"
-    content="What does an algorithmic choice demonstrate? Scientific research by Nuno Valenzuela examining computational evidence, decision verification, search coverage and the limits of algorithmic conclusions.">
-
-  <meta name="author" content="Nuno Valenzuela">
+  <meta name="description" content="What does an algorithmic choice actually demonstrate? Research by Nuno Valenzuela Alonso on algorithmic selection, demonstrated preference, computational evidence, verification and AI governance.">
+  <meta name="author" content="Nuno Valenzuela Alonso">
   <meta name="robots" content="index, follow">
   <meta name="googlebot" content="index, follow">
-  <meta name="author" content="Nuno Valenzuela Alonso">
-  <link rel="canonical"
-    href="https://algorithmic-choice.github.io/">
+
+  <link rel="canonical" href="https://algorithmic-choice.github.io/">
 
   <meta property="og:type" content="article">
-  <meta property="og:title"
-    content="What Does an Algorithmic Choice Demonstrate?">
-  <meta property="og:description"
-    content="Computational evidence, verification and the limits of algorithmic decisions. Scientific research by Nuno Valenzuela.">
-  <meta property="og:url"
-    content="https://algorithmic-choice.github.io/">
-  <meta property="og:site_name"
-    content="Algorithmic Choice">
+  <meta property="og:title" content="What Does an Algorithmic Choice Demonstrate?">
+  <meta property="og:description" content="A philosophical-computational framework distinguishing observed algorithmic selection from demonstrated preference. Research by Nuno Valenzuela Alonso.">
+  <meta property="og:url" content="https://algorithmic-choice.github.io/">
+  <meta property="og:site_name" content="Algorithmic Choice">
 
-  <meta name="citation_title"
-    content="What Does an Algorithmic Choice Demonstrate?">
-  <meta name="citation_author"
-    content="Valenzuela, Nuno">
-  <meta name="citation_doi"
-    content="10.5281/zenodo.23647211">
+  <meta name="citation_title" content="What Does an Algorithmic Choice Demonstrate?">
+  <meta name="citation_author" content="Valenzuela Alonso, Nuno">
+  <meta name="citation_doi" content="10.5281/zenodo.23647211">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
     "headline": "What Does an Algorithmic Choice Demonstrate?",
+    "name": "What Does an Algorithmic Choice Demonstrate?",
     "author": {
       "@type": "Person",
-      "name": "Nuno Valenzuela"
+      "name": "Nuno Valenzuela Alonso"
     },
     "identifier": "https://doi.org/10.5281/zenodo.23647211",
+    "sameAs": "https://doi.org/10.5281/zenodo.23647211",
     "url": "https://algorithmic-choice.github.io/",
-    "description": "Research examining the relationship between algorithmic decisions, computational evidence, verification and the limits of conclusions drawn from observed outcomes.",
+    "inLanguage": "en",
     "isAccessibleForFree": true,
-    "inLanguage": "en"
+    "description": "A philosophical-computational framework distinguishing observed algorithmic selection from demonstrated preference, examining computational evidence, verification and the limits of algorithmic conclusions."
   }
   </script>
 
   <style>
-    * { box-sizing: border-box; }
+    :root {
+      --violet-dark: #39254F;
+      --violet: #72539C;
+      --violet-hover: #533578;
+      --violet-muted: #765C91;
+      --lavender: #F1EBF7;
+      --lavender-light: #F9F7FC;
+      --lavender-border: #DDD0EB;
+      --text: #33283D;
+      --muted: #655671;
+      --white: #FFFFFF;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
-      background: #f5f7fb;
-      color: #18253b;
-      font-family: system-ui, Arial, sans-serif;
+      background: var(--lavender-light);
+      color: var(--text);
+      font-family: "Times New Roman", Times, serif;
+      font-size: 19px;
       line-height: 1.75;
     }
 
-    header {
-      background: #14233b;
-      color: #fff;
-      padding: 72px 7%;
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
     }
 
-    .container {
-      max-width: 1050px;
-      margin: auto;
+    header {
+      background: var(--lavender);
+      color: var(--violet-dark);
+      padding: 70px 7%;
+      border-bottom: 2px solid var(--lavender-border);
     }
 
     .eyebrow {
-      color: #a9c7f5;
+      font-family: Georgia, serif;
       font-size: 13px;
-      font-weight: 700;
+      font-weight: bold;
       letter-spacing: 2px;
       text-transform: uppercase;
+      color: var(--violet);
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--violet-dark);
+      font-weight: normal;
     }
 
     h1 {
-      font-size: clamp(30px, 5vw, 48px);
-      line-height: 1.18;
-      margin: 18px 0;
+      font-size: clamp(32px, 5vw, 50px);
+      line-height: 1.2;
+      margin: 20px 0;
+      max-width: 950px;
+    }
+
+    h2 {
+      font-size: 29px;
+      line-height: 1.3;
+      margin-top: 0;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #E8DFF0;
+    }
+
+    h3 {
+      font-size: 23px;
+      line-height: 1.35;
     }
 
     .subtitle {
+      font-family: Georgia, serif;
       font-size: 21px;
-      color: #d6e3f5;
-      max-width: 800px;
+      color: var(--violet-muted);
+      max-width: 850px;
     }
 
     .author {
-      margin-top: 32px;
-      color: #e7edf8;
+      margin-top: 30px;
+      color: #51405F;
+      font-family: Georgia, serif;
+      font-size: 17px;
+    }
+
+    nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--lavender-border);
+      padding: 14px 7%;
+    }
+
+    nav .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 25px;
+    }
+
+    nav a {
+      font-family: Georgia, serif;
+      font-size: 15px;
+      text-decoration: none;
+      font-weight: bold;
     }
 
     main {
-      max-width: 1050px;
-      margin: 40px auto;
+      max-width: 1080px;
+      margin: 42px auto;
       padding: 0 20px;
     }
 
     section {
-      background: white;
-      padding: 35px;
+      background: var(--white);
+      padding: 38px;
+      border: 1px solid #E8DFF0;
       border-radius: 12px;
-      margin-bottom: 24px;
-      box-shadow: 0 3px 18px #18253b0b;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 18px rgba(72,44,96,0.04);
     }
 
-    h2 {
+    p {
+      margin: 0 0 20px;
+    }
+
+    a {
+      color: #684392;
+      text-decoration-color: #B9A3D3;
+      overflow-wrap: anywhere;
+    }
+
+    a:hover {
+      color: var(--violet-hover);
+    }
+
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--violet);
+      outline-offset: 4px;
+    }
+
+    .scientific-formula {
+      background: var(--lavender-light);
+      border: 1px solid var(--lavender-border);
+      border-radius: 9px;
+      padding: 26px 15px;
+      margin: 27px 0;
+      overflow-x: auto;
+      text-align: center;
+      color: var(--violet-dark);
+      font-size: 1.2em;
+    }
+
+    .scientific-formula math {
+      font-family: "Cambria Math", "STIX Two Math", serif;
+    }
+
+    .formula-caption {
+      font-family: Georgia, serif;
+      font-size: 14px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: -12px;
+    }
+
+    .abstract-conclusion {
+      background: var(--lavender-light);
+      border-left: 4px solid var(--violet);
+      padding: 18px 22px;
+      color: var(--violet-dark);
+      margin-top: 28px;
+    }
+
+    .research-accordion {
+      background: var(--white);
+      border: 1px solid var(--lavender-border);
+      border-radius: 10px;
+      margin: 17px 0;
+      overflow: hidden;
+    }
+
+    .research-accordion summary {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 23px 24px;
+      cursor: pointer;
+      font-family: Georgia, serif;
+      font-size: 19px;
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--violet-dark);
+      list-style: none;
+    }
+
+    .research-accordion summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .research-accordion summary::after {
+      content: "+";
+      margin-left: auto;
+      flex-shrink: 0;
+      font-size: 27px;
+      color: var(--violet);
+    }
+
+    .research-accordion[open] summary::after {
+      content: "−";
+    }
+
+    .research-accordion summary:hover {
+      background: #F5F0FA;
+    }
+
+    .research-accordion[open] summary {
+      background: var(--lavender);
+      border-bottom: 1px solid var(--lavender-border);
+    }
+
+    .question-number {
+      flex-shrink: 0;
+      background: #EDE4F6;
+      color: var(--violet);
+      border-radius: 7px;
+      padding: 7px 11px;
+      font-size: 15px;
+    }
+
+    .accordion-content {
+      padding: 28px 30px;
+      line-height: 1.8;
+    }
+
+    .research-conclusion {
+      margin-top: 32px;
+      background: var(--lavender);
+      border-left: 4px solid var(--violet);
+      border-radius: 8px;
+      padding: 30px;
+    }
+
+    .research-conclusion h3 {
       margin-top: 0;
-      font-size: 26px;
-      color: #14233b;
     }
-
-    a { color: #1763b1; }
 
     .button {
       display: inline-block;
-      background: #1763b1;
-      color: white;
-      padding: 12px 22px;
+      background: var(--violet);
+      color: var(--white);
+      padding: 13px 24px;
       border-radius: 7px;
       text-decoration: none;
-      font-weight: 600;
-      margin: 12px 0;
+      font-family: Georgia, serif;
+      font-size: 16px;
+      font-weight: bold;
+      margin: 12px 10px 12px 0;
+    }
+
+    .button:hover {
+      background: var(--violet-hover);
+      color: var(--white);
+    }
+
+    .button.secondary {
+      background: var(--lavender);
+      color: var(--violet-dark);
+      border: 1px solid var(--lavender-border);
+    }
+
+    .button.secondary:hover {
+      background: #E8DDF3;
+    }
+
+    .metadata {
+      font-family: Georgia, serif;
+      font-size: 15px;
+      color: var(--muted);
     }
 
     .viewer {
       width: 100%;
       height: 850px;
-      border: 1px solid #dce2ea;
+      border: 1px solid var(--lavender-border);
       border-radius: 8px;
       margin-top: 20px;
+      background: white;
     }
 
-    .metadata {
-      font-size: 14px;
-      color: #526079;
+    .keywords {
+      font-family: Georgia, serif;
+      font-size: 15px;
+      color: var(--muted);
     }
 
     footer {
       text-align: center;
-      padding: 30px 15px;
-      color: #66738a;
-      font-size: 13px;
+      padding: 38px 20px;
+      color: #756783;
+      font-family: Georgia, serif;
+      font-size: 14px;
+      border-top: 1px solid #E8DFF0;
     }
 
-    @media (max-width: 600px) {
-      header { padding: 45px 22px; }
-      section { padding: 23px; }
-      .viewer { height: 600px; }
+    @media (max-width: 650px) {
+      body {
+        font-size: 17px;
+      }
+
+      header {
+        padding: 45px 22px;
+      }
+
+      nav {
+        padding: 14px 22px;
+      }
+
+      section {
+        padding: 23px;
+      }
+
+      .research-accordion summary {
+        font-size: 17px;
+        padding: 17px;
+        gap: 12px;
+      }
+
+      .accordion-content {
+        padding: 20px;
+      }
+
+      .scientific-formula {
+        font-size: 0.95em;
+      }
+
+      .viewer {
+        height: 600px;
+      }
     }
   </style>
 </head>
 
 <body>
+
   <header>
     <div class="container">
       <div class="eyebrow">
@@ -174,126 +406,404 @@
       </p>
 
       <div class="author">
-        <strong>Nuno Valenzuela</strong><br>
-        Independent Research
+        <strong>Nuno Valenzuela Alonso</strong><br>
+        Independent Scientific Research
       </div>
     </div>
   </header>
 
+  <nav aria-label="Main navigation">
+    <div class="container">
+      <a href="#abstract">Abstract</a>
+      <a href="#research-questions">Research Questions</a>
+      <a href="#scientific-conclusion">Conclusion</a>
+      <a href="#publication">Scientific Paper</a>
+    </div>
+  </nav>
+
   <main>
-    <section>
+
+    <!-- ABSTRACT -->
+
+    <section id="abstract">
       <h2>Abstract</h2>
 
       <p>
-        An algorithmic decision produces an observable
-        outcome, but what does that outcome actually
-        demonstrate? The distinction between selecting
-        an alternative and establishing the validity
-        or optimality of that selection is fundamental
-        to the interpretation of computational results.
+        <strong>
+          What does an algorithmic choice actually demonstrate?
+        </strong>
+        This paper introduces a philosophical-computational
+        framework distinguishing an observed algorithmic
+        selection from a demonstrated preference.
+        We establish this distinction through the
+        central logical formula:
+      </p>
+
+      <div class="scientific-formula">
+        <math xmlns="http://www.w3.org/1998/Math/MathML"
+              display="block">
+          <menclose notation="box">
+            <mrow>
+              <msub>
+                <mi mathvariant="normal">Selected</mi>
+                <mi>h</mi>
+              </msub>
+              <mo>(</mo><mi>b</mi><mo>)</mo>
+              <mo>&#x22AD;</mo>
+              <msubsup>
+                <mi>DP</mi><mi>h</mi><mi>C</mi>
+              </msubsup>
+              <mo>(</mo><mi>b</mi><mo>,</mo>
+              <mi>a</mi><mo>)</mo>
+            </mrow>
+          </menclose>
+        </math>
+      </div>
+
+      <p>
+        The formula establishes that selecting an action
+        does not, by itself, demonstrate its preference
+        over another alternative. Such a conclusion
+        requires sufficient comparative evidence under
+        explicitly defined standards.
       </p>
 
       <p>
-        This research examines the evidentiary
-        relationship between algorithmic choice,
-        computational execution, search coverage
-        and verification. It considers how the
-        alternatives examined by a computational
-        procedure constrain the conclusions that
-        can legitimately be drawn from its output.
+        This distinction addresses a fundamental need
+        in artificial intelligence governance,
+        particularly in the European Union, where
+        transparency, traceability, and accountability
+        are central requirements for trustworthy AI.
       </p>
 
-      <p>
-        Particular attention is given to the
-        distinction between an observed result,
-        evidence supporting that result, and
-        stronger claims concerning exhaustiveness
-        or optimality. These distinctions provide
-        a conceptual basis for evaluating the
-        limits of algorithmic decision-making
-        and the requirements for reproducible
-        computational verification.
-      </p>
-
-      <p>
-        The central question is not merely which
-        alternative an algorithm selects, but
-        what the available evidence establishes
-        about that selection.
+      <p class="abstract-conclusion">
+        <strong>
+          The contribution provides a formal foundation
+          for determining what an AI system actually
+          demonstrates through its decisions, rather
+          than merely what it selects.
+        </strong>
       </p>
     </section>
 
-    <section>
+    <!-- RESEARCH QUESTIONS -->
+
+    <section id="research-questions">
       <h2>Research Questions</h2>
 
       <p>
-        What can be established from an observed
-        algorithmic decision?
+        Three fundamental questions clarify the
+        relationship between algorithmic selection,
+        computational evidence and justified conclusions.
+        Select each question to explore its formal
+        and philosophical-computational foundations.
       </p>
 
-      <p>
-        Under what conditions does computational
-        evidence support claims of completeness
-        or optimality?
-      </p>
+      <!-- QUESTION 1 -->
 
-      <p>
-        How can verification distinguish a
-        successful execution from a justified
-        conclusion?
-      </p>
+      <details class="research-accordion">
+        <summary>
+          <span class="question-number">01</span>
+          <span>
+            What can be established from an observed
+            algorithmic decision?
+          </span>
+        </summary>
+
+        <div class="accordion-content">
+          <p>
+            An observed algorithmic decision establishes
+            which action was selected, but not necessarily
+            why it was selected, whether all relevant
+            alternatives were compared, or whether
+            the selected action is optimal.
+          </p>
+
+          <p>
+            The central philosophical-computational
+            distinction is expressed by:
+          </p>
+
+          <div class="scientific-formula">
+            <math xmlns="http://www.w3.org/1998/Math/MathML"
+                  display="block">
+              <menclose notation="box">
+                <mrow>
+                  <msub>
+                    <mi mathvariant="normal">Selected</mi>
+                    <mi>h</mi>
+                  </msub>
+                  <mo>(</mo><mi>b</mi><mo>)</mo>
+                  <mo>&#x22AD;</mo>
+                  <msubsup>
+                    <mi>DP</mi><mi>h</mi><mi>C</mi>
+                  </msubsup>
+                  <mo>(</mo><mi>b</mi><mo>,</mo>
+                  <mi>a</mi><mo>)</mo>
+                </mrow>
+              </menclose>
+            </math>
+          </div>
+
+          <p>
+            Selection alone does not logically entail
+            demonstrated preference. A justified
+            preference attribution requires admissible
+            comparative evidence under an explicitly
+            defined standard.
+          </p>
+        </div>
+      </details>
+
+      <!-- QUESTION 2 -->
+
+      <details class="research-accordion">
+        <summary>
+          <span class="question-number">02</span>
+          <span>
+            Under what conditions does computational
+            evidence support claims of completeness
+            or optimality?
+          </span>
+        </summary>
+
+        <div class="accordion-content">
+          <p>
+            Computational evidence supports completeness
+            when the relevant search space has been fully
+            accounted for, either through exhaustive
+            examination or through formally justified
+            exclusion of alternatives.
+          </p>
+
+          <p>
+            Optimality requires stronger evidence:
+            proof that no admissible alternative
+            exceeds the selected action under
+            the declared objective.
+          </p>
+
+          <p>
+            For a maximization problem, one sufficient
+            certification condition is:
+          </p>
+
+          <div class="scientific-formula">
+            <math xmlns="http://www.w3.org/1998/Math/MathML"
+                  display="block">
+              <menclose notation="box">
+                <mrow>
+                  <mo>&#x2200;</mo>
+                  <mi>a</mi><mo>&#x2208;</mo>
+                  <mi>A</mi><mo>(</mo><mi>s</mi><mo>)</mo>
+                  <mo>&#x2216;</mo>
+                  <mo>{</mo><mi>b</mi><mo>}</mo>
+                  <mo>,</mo>
+                  <mspace width="0.5em"/>
+                  <mi>L</mi><mo>(</mo><mi>b</mi><mo>)</mo>
+                  <mo>&#x2265;</mo>
+                  <mi>U</mi><mo>(</mo><mi>a</mi><mo>)</mo>
+                </mrow>
+              </menclose>
+            </math>
+          </div>
+
+          <p>
+            Where A(s) is the complete set of admissible
+            actions, L(b) is a sound lower bound on the
+            selected action's value, and U(a) is a sound
+            upper bound on each alternative's value.
+          </p>
+
+          <p>
+            This condition establishes global optimality
+            only when the bounds are valid for the same
+            objective and decision horizon and all
+            admissible alternatives are accounted for.
+          </p>
+
+          <p>
+            Exhaustive exploration is not always
+            necessary; sufficient mathematical evidence
+            can establish optimality without examining
+            every possibility individually.
+          </p>
+        </div>
+      </details>
+
+      <!-- QUESTION 3 -->
+
+      <details class="research-accordion">
+        <summary>
+          <span class="question-number">03</span>
+          <span>
+            How can verification distinguish a
+            successful execution from a
+            justified conclusion?
+          </span>
+        </summary>
+
+        <div class="accordion-content">
+          <p>
+            A successful execution demonstrates that
+            an algorithm completed its procedure and
+            produced an output. A justified conclusion
+            requires an additional evidential assessment.
+          </p>
+
+          <p>
+            Verification must establish that the evidence
+            is admissible, that the relevant comparison
+            is resolved, that the evidence corresponds
+            to the actions being compared, and that
+            its direction and scope support the
+            claimed conclusion.
+          </p>
+
+          <p>The fundamental inference is:</p>
+
+          <div class="scientific-formula">
+            <math xmlns="http://www.w3.org/1998/Math/MathML"
+                  display="block">
+              <menclose notation="box">
+                <mfrac>
+                  <mtext>
+                    Valid comparative evidence and
+                    satisfied attribution conditions
+                  </mtext>
+                  <mtext>
+                    Justified preference attribution
+                  </mtext>
+                </mfrac>
+              </menclose>
+            </math>
+          </div>
+
+          <p>
+            The executable verifier developed in Paper 2
+            operationalizes this distinction through
+            explicit comparison standards, traceable
+            evidence and computational checks.
+          </p>
+
+          <p>
+            The philosophical-computational principle
+            is that successful execution establishes
+            what a machine did; verification establishes
+            what its evidence permits us to conclude.
+          </p>
+        </div>
+      </details>
+
     </section>
 
-    <section>
+    <!-- CENTRAL CONCLUSION -->
+
+    <section id="scientific-conclusion">
+      <h2>Central Scientific Conclusion</h2>
+
+      <div class="research-conclusion">
+        <p>
+          An algorithmic decision is an observable
+          computational event. Preference, completeness
+          and optimality are distinct claims that require
+          their own standards of evidence and justification.
+        </p>
+
+        <p>
+          The contribution of this research is to establish
+          the logical boundaries of these claims and
+          provide a foundation for their computational
+          verification—a distinction particularly relevant
+          to transparency, traceability and accountability
+          in trustworthy artificial intelligence.
+        </p>
+      </div>
+    </section>
+
+    <!-- PUBLICATION -->
+
+    <section id="publication">
       <h2>Scientific Publication</h2>
 
-      <p>
-        <strong>
-          What Does an Algorithmic Choice Demonstrate?
-        </strong>
-      </p>
+      <h3>
+        What Does an Algorithmic Choice Demonstrate?
+      </h3>
 
       <p class="metadata">
-        Author: Nuno Valenzuela<br>
-        DOI:
+        <strong>Author:</strong> Nuno Valenzuela Alonso<br>
+        <strong>Research:</strong> Algorithmic Choice<br>
+        <strong>DOI:</strong>
         <a href="https://doi.org/10.5281/zenodo.23647211">
           10.5281/zenodo.23647211
         </a>
+      </p>
+
+      <p>
+        The full scientific paper is available
+        for reading below.
       </p>
 
       <a id="download" class="button" href="#">
         Read Full Scientific Paper (PDF)
       </a>
 
-      <h2>Full Paper</h2>
+      <a class="button secondary"
+         href="https://doi.org/10.5281/zenodo.23647211"
+         target="_blank"
+         rel="noopener noreferrer">
+        View Publication on Zenodo
+      </a>
+
+      <h3>Full Paper</h3>
 
       <iframe
         id="viewer"
         class="viewer"
-        title="What Does an Algorithmic Choice Demonstrate? Full PDF"
+        title="What Does an Algorithmic Choice Demonstrate? Scientific Paper"
         loading="lazy">
       </iframe>
 
       <p class="metadata">
-        If the embedded viewer is unavailable,
-        use the PDF link above.
+        If the embedded PDF viewer is unavailable,
+        use the PDF link above to open the document.
       </p>
     </section>
+
+    <!-- KEYWORDS -->
+
+    <section>
+      <h2>Research Keywords</h2>
+
+      <p class="keywords">
+        Algorithmic Choice · Demonstrated Preference ·
+        Computational Evidence · Formal Verification ·
+        Search Completeness · Optimality Certification ·
+        Decision Theory · Explainable AI ·
+        AI Governance · Trustworthy Artificial Intelligence
+      </p>
+    </section>
+
   </main>
 
   <footer>
-    Algorithmic Choice · Nuno Valenzuela<br>
-    Independent Scientific Research
+    <strong>Algorithmic Choice</strong><br>
+    Independent Scientific Research<br>
+    Nuno Valenzuela Alonso · 2026<br>
+    <a href="https://doi.org/10.5281/zenodo.23647211">
+      DOI: 10.5281/zenodo.23647211
+    </a>
   </footer>
 
   <script>
     const pdf =
       "What_Does_an_Algorithmic_Choice_Demonstrate_nuno_valenzuela_doi_10.5281zenodo_23647211.pdf";
 
-    const url = encodeURI(pdf);
+    const pdfUrl = encodeURI(pdf);
 
-    document.getElementById("viewer").src = url;
-    document.getElementById("download").href = url;
+    document.getElementById("viewer").src = pdfUrl;
+    document.getElementById("download").href = pdfUrl;
   </script>
+
 </body>
 </html>
