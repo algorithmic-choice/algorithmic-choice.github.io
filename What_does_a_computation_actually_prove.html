@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>What does a computation actually prove? Nuño Valenzuela</title>
+<title>What does a computation actually prove?</title>
 <meta name="description" content="Paper 2 by Nuño Valenzuela Alonso: formal characterization of strict dominance under partial evidence in finite MIN/MAX evaluation expressions, with implications for epistemology and Responsible AI.">
 <meta name="author" content="Nuño Valenzuela Alonso">
 <meta name="robots" content="index, follow">
@@ -15,21 +15,21 @@
 <meta name="citation_title" content="What does a computation actually prove? From algorithmic choice to formal ethical certification">
 <meta name="citation_author" content="Valenzuela Alonso, Nuño">
 <meta name="citation_doi" content="10.5281/zenodo.23955960">
-<meta name="citation_pdf_url" content="https://algorithmic-choice.github.io/paper2.pdf">
+<meta name="citation_pdf_url" content="https://algorithmic-choice.github.io/What_does_a_computation_actually_prove_nuno_valenzuela_1192026.pdf">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ScholarlyArticle","name":"What does a computation actually prove? From algorithmic choice to formal ethical certification","headline":"What does a computation actually prove?","author":{"@type":"Person","name":"Nuño Valenzuela Alonso","sameAs":"https://orcid.org/0009-0001-6897-3912"},"identifier":"https://doi.org/10.5281/zenodo.23955960","url":"https://algorithmic-choice.github.io/What_does_a_computation_actually_prove.html","inLanguage":"en","datePublished":"2026-11-04","isAccessibleForFree":true,"encoding":{"@type":"MediaObject","contentUrl":"https://algorithmic-choice.github.io/paper2.pdf","encodingFormat":"application/pdf"},"isPartOf":{"@type":"CreativeWorkSeries","name":"Algorithmic Choice research"},"citation":"https://doi.org/10.5281/zenodo.23647211","description":"An exact characterization of strict dominance under partial evidence for finite MIN/MAX expressions under independent-interval uncertainty, including shared variables."}
+{"@context":"https://schema.org","@type":"ScholarlyArticle","name":"What does a computation actually prove? From algorithmic choice to formal ethical certification","headline":"What does a computation actually prove?","author":{"@type":"Person","name":"Nuño Valenzuela Alonso","sameAs":"https://orcid.org/0009-0001-6897-3912"},"identifier":"https://doi.org/10.5281/zenodo.23955960","url":"https://algorithmic-choice.github.io/What_does_a_computation_actually_prove.html","inLanguage":"en","datePublished":"2026-11-04","isAccessibleForFree":true,"encoding":{"@type":"MediaObject","contentUrl":"https://algorithmic-choice.github.io/What_does_a_computation_actually_prove_nuno_valenzuela_1192026.pdf","encodingFormat":"application/pdf"},"isPartOf":{"@type":"CreativeWorkSeries","name":"Algorithmic Choice research"},"citation":"https://doi.org/10.5281/zenodo.23647211","description":"An exact characterization of strict dominance under partial evidence for finite MIN/MAX expressions under independent-interval uncertainty, including shared variables."}
 </script>
 <style>
     :root {
-      --violet-dark: #39254F;
-      --violet: #72539C;
-      --violet-hover: #533578;
-      --violet-muted: #765C91;
-      --lavender: #F1EBF7;
-      --lavender-light: #F9F7FC;
-      --lavender-border: #DDD0EB;
-      --text: #33283D;
-      --muted: #655671;
+      --violet-dark: #163F51;
+      --violet: #19768A;
+      --violet-hover: #125D70;
+      --violet-muted: #39788B;
+      --lavender: #E8F3F5;
+      --lavender-light: #F6FAFB;
+      --lavender-border: #C9E1E6;
+      --text: #243B43;
+      --muted: #526C75;
       --white: #FFFFFF;
     }
 
@@ -89,7 +89,7 @@
       line-height: 1.3;
       margin-top: 0;
       padding-bottom: 12px;
-      border-bottom: 1px solid #E8DFF0;
+      border-bottom: 1px solid #D8E8EB;
     }
 
     h3 {
@@ -139,7 +139,7 @@
     section {
       background: var(--white);
       padding: 38px;
-      border: 1px solid #E8DFF0;
+      border: 1px solid #D8E8EB;
       border-radius: 12px;
       margin-bottom: 28px;
       box-shadow: 0 4px 18px rgba(72,44,96,0.04);
@@ -236,7 +236,7 @@
     }
 
     .research-accordion summary:hover {
-      background: #F5F0FA;
+      background: #EFF7F8;
     }
 
     .research-accordion[open] summary {
@@ -246,7 +246,7 @@
 
     .question-number {
       flex-shrink: 0;
-      background: #EDE4F6;
+      background: #D9EEF0;
       color: var(--violet);
       border-radius: 7px;
       padding: 7px 11px;
@@ -295,7 +295,7 @@
     }
 
     .button.secondary:hover {
-      background: #E8DDF3;
+      background: #D6E9ED;
     }
 
     .metadata {
@@ -325,7 +325,7 @@
       color: #756783;
       font-family: Georgia, serif;
       font-size: 14px;
-      border-top: 1px solid #E8DFF0;
+      border-top: 1px solid #D8E8EB;
     }
 
     @media (max-width: 650px) {
@@ -365,6 +365,14 @@
     }
   
 nav a{color:var(--violet-dark)} nav a:hover{text-decoration:underline} .paper-link{font-size:15px;color:var(--muted)} .result-list{padding-left:1.4em} .result-list li{margin:10px 0} .formula-caption{margin-top:0} .scientific-formula{font-size:1.05em} .scientific-formula math{max-width:100%} .meta-line{font-family:Georgia,serif;color:var(--muted);font-size:15px} .notice{border-left:4px solid var(--violet);padding:15px 20px;background:var(--lavender-light)}
+
+/* Paper 2: independent blue/teal identity, preserving Paper 1 layout */
+.paper-nav .container { display:flex; flex-wrap:wrap; align-items:center; gap:8px 23px; }
+.paper-nav a {display:inline-block; white-space:normal; font-size:14px; line-height:1.5;}
+.back-link {margin:22px 0 0; font: 600 15px/1.5 Georgia,serif;}
+.back-link a {color:var(--violet-dark);text-decoration:none;border-bottom:1px solid var(--violet-muted);}
+.back-link a:hover {color:var(--violet-hover);}
+@media (max-width:650px){.paper-nav .container{gap:8px 16px}.paper-nav a{font-size:14px}}
 </style>
 </head>
 <body>
@@ -373,9 +381,15 @@ nav a{color:var(--violet-dark)} nav a:hover{text-decoration:underline} .paper-li
 <h1>What does a computation actually prove?</h1>
 <p class="subtitle">From algorithmic choice to formal ethical certification</p>
 <div class="author"><strong>Nuño Valenzuela Alonso</strong><br>Researcher in Algorithmic Decision-Making and Formal Methods<br><a href="https://orcid.org/0009-0001-6897-3912">ORCID 0009-0001-6897-3912</a></div>
+<p class="back-link"><a href="./">← Read Paper 1: What does an algorithmic choice demonstrate?</a></p>
 </div></header>
-<nav aria-label="Main navigation"><div class="container">
-<a href="/">Read Paper 1 — What does an Algorithmic Choice demonstrate?</a><a href="#abstract">Abstract</a><a href="#results">Main results</a><a href="#questions">Research questions</a><a href="#implications">Implications</a><a href="#publication">Read the paper</a>
+<nav aria-label="Main navigation" class="paper-nav"><div class="container">
+<a href="#abstract">Abstract</a>
+<a href="#results">Main results</a>
+<a href="#assumption-h1">Assumption H1</a>
+<a href="#questions">Research questions</a>
+<a href="#implications">Implications</a>
+<a href="#publication">Read the paper</a>
 </div></nav>
 <main>
 <section id="abstract"><h2>Abstract</h2>
@@ -383,6 +397,12 @@ nav a{color:var(--violet-dark)} nav a:hover{text-decoration:underline} .paper-li
 <p>For finite MIN/MAX evaluation expressions under independent-interval uncertainty (H1), including expressions with shared leaf variables, it characterizes when the available evidence guarantees that one alternative is strictly superior to another in every compatible completion. The necessary direction is established by constructing a single compatible completion through threshold clipping.</p>
 <p>The study also distinguishes semantic determination from the soundness of an implemented verifier, illustrates the result with a twelve-leaf example, and discusses the epistemic and ethical limits of computational conclusions.</p>
 <div class="abstract-conclusion"><strong>The central distinction:</strong> what an algorithm selects, what the evidence determines, and what a sound certification procedure can validly attest are different claims.</div>
+</section>
+<section id="assumption-h1"><h2>What is assumption H1?</h2>
+<p><strong>H1 — Independence of the unknown values.</strong> Each unobserved leaf variable can take any real value within its own <strong>closed, bounded, nonempty interval</strong>. Once the evidence is fixed, every combination of admissible values for <em>distinct</em> unknown variables is allowed. Previously observed values remain fixed.</p>
+<p><strong>Shared variables are not independent copies.</strong> If the same variable appears more than once in a MIN/MAX evaluation graph—even in both alternatives—it receives the <em>same</em> value at every occurrence within a compatible completion. H1 concerns freedom between distinct unknown variables, not statistical independence.</p>
+<p>This is the condition under which the paper proves the <strong>necessary</strong> direction of Theorem 1 using threshold clipping. The <strong>sufficient</strong> direction (separation of valid bounds) does not require H1. The theorem is not automatically extended to models imposing additional dependencies between variables.</p>
+<div class="notice"><strong>In simple terms:</strong> unknown values can vary freely within their declared intervals, but a shared value must remain identical everywhere it appears. This is a mathematical modeling assumption, not a claim about how an algorithm searches.</div>
 </section>
 <section id="results"><h2>Main scientific results</h2>
 <h3>Theorem 1 — Strict dominance under partial evidence</h3>
@@ -398,7 +418,7 @@ nav a{color:var(--violet-dark)} nav a:hover{text-decoration:underline} .paper-li
 </ul>
 </section>
 <section id="questions"><h2>Research questions</h2>
-<p>The same academic presentation as Paper 1, now focused on the positive mathematical characterization developed in Paper 2.</p>
+<p>These questions explain the mathematical result, the role of shared variables, and the difference between proof and certification.</p>
 <details class="research-accordion"><summary><span class="question-number">01</span><span>When can partial evidence prove strict superiority?</span></summary><div class="accordion-content"><p>Under the declared finite MIN/MAX model and H1, exact lower and upper extrema provide a necessary and sufficient test for strict dominance in all compatible completions. The condition is semantic; its satisfaction does not automatically certify an implementation.</p></div></details>
 <details class="research-accordion"><summary><span class="question-number">02</span><span>Why do shared variables matter in the proof?</span></summary><div class="accordion-content"><p>The lower extremum of one expression and the upper extremum of another may be attained in different assignments. Lemma 4 constructs one common compatible completion using threshold clipping, preserving the identity of shared variables and showing why non-separation defeats universal strict dominance.</p></div></details>
 <details class="research-accordion"><summary><span class="question-number">03</span><span>What is established by the twelve-leaf example?</span></summary><div class="accordion-content"><p>Five observed leaves establish strict superiority in the specified tree. Removing any one observation permits both favorable and unfavorable compatible completions. This demonstrates inclusion-minimality of that evidence set, not global minimality across all possible certificates.</p><div class="scientific-formula"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><msub><mi>L</mi><msup><mi>E</mi><mo>+</mo></msup></msub><mo>(</mo><msub><mi>a</mi><mn>5</mn></msub><mo>)</mo><mo>=</mo><mn>0.95</mn><mo>&gt;</mo><mo>−</mo><mn>0.30</mn><mo>=</mo><msub><mi>U</mi><msup><mi>E</mi><mo>+</mo></msup></msub><mo>(</mo><msub><mi>a</mi><mn>0</mn></msub><mo>)</mo></mrow></math></div></div></details>
@@ -410,13 +430,13 @@ nav a{color:var(--violet-dark)} nav a:hover{text-decoration:underline} .paper-li
 </section>
 <section id="publication"><h2>Scientific publication</h2><h3>What does a computation actually prove?</h3>
 <p class="metadata"><strong>Author:</strong> Nuño Valenzuela Alonso<br><strong>Publication:</strong> Preprint · November 2026 · 58 pages<br><strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.23955960">10.5281/zenodo.23955960</a><br><strong>License:</strong> CC BY 4.0</p>
-<a class="button" href="paper2.pdf" target="_blank" rel="noopener">Read full scientific paper (PDF)</a>
+<a class="button" href="What_does_a_computation_actually_prove_nuno_valenzuela_1192026.pdf" download="What_does_a_computation_actually_prove_nuno_valenzuela_1192026.pdf" target="_blank" rel="noopener">Read full scientific paper (PDF)</a>
 <a class="button secondary" href="https://doi.org/10.5281/zenodo.23955960" target="_blank" rel="noopener noreferrer">View on Zenodo</a>
 <a class="button secondary" href="https://www.researchgate.net/publication/417647344_What_does_a_Computation_actually_Prove_From_Algorithmic_Choice_to_Formal_Ethical_Certification" target="_blank" rel="noopener noreferrer">View on ResearchGate</a>
-<h3>Full paper</h3><iframe class="viewer" src="paper2.pdf#view=FitH" title="Paper 2 full scientific paper PDF" loading="lazy"></iframe>
-<p class="metadata">If the embedded viewer is unavailable, use the PDF link above.</p>
+<h3>Full paper</h3><iframe class="viewer" src="What_does_a_computation_actually_prove_nuno_valenzuela_1192026.pdf#view=FitH" title="Paper 2 full scientific paper PDF" loading="lazy"></iframe>
+<p class="metadata">If the embedded viewer is unavailable, open the PDF above or use the Zenodo publication link. The local PDF requires <code>What_does_a_computation_actually_prove_nuno_valenzuela_1192026.pdf</code> in the same GitHub repository folder as this HTML file.</p>
 </section>
-<section><h2>Research continuity</h2><p><strong>Paper 1</strong> examines what cannot be inferred from an observed algorithmic selection alone. <strong>Paper 2</strong> asks what partial evidence can positively determine, under explicit mathematical assumptions.</p><a class="button secondary" href="/">Read Paper 1 — What does an Algorithmic Choice demonstrate?</a></section>
+<section><h2>Research continuity</h2><p><strong>Paper 1</strong> examines what cannot be inferred from an observed algorithmic selection alone. <strong>Paper 2</strong> asks what partial evidence can positively determine, under explicit mathematical assumptions.</p><a class="button secondary" href="/">Read Paper 1: What does an algorithmic choice demonstrate?</a></section>
 <section><h2>Research keywords</h2><p class="keywords">Algorithmic choice · Partial evidence · MIN/MAX evaluation · Exact semantic extrema · Strict dominance · Demonstrated preference · Formal verification · Computational epistemology · Responsible AI · Ethical justification</p></section>
 </main>
 <footer><strong>Algorithmic Choice</strong><br>Nuño Valenzuela Alonso · 2026<br><a href="/">Read Paper 1</a> · <a href="https://doi.org/10.5281/zenodo.23955960">Paper 2 DOI</a></footer>
