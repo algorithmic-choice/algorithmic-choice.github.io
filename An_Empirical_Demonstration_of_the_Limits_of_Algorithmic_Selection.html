@@ -1,0 +1,367 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>What Does Empirical Evidence Demonstrate About Algorithmic Choice? | Nuño Valenzuela Alonso</title><meta name="description" content="Paper 3: empirical UCT/PUCT witnesses, exact MIN/MAX optimality gaps, five-observation partial-evidence certificates, and the limits of algorithmic selection."><meta name="author" content="Nuño Valenzuela Alonso"><meta name="robots" content="index, follow"><link rel="canonical" href="https://algorithmic-choice.github.io/An_Empirical_Demonstration_of_the_Limits_of_Algorithmic_Selection.html"><meta property="og:type" content="article"><meta property="og:title" content="What Does Empirical Evidence Demonstrate About Algorithmic Choice?"><meta property="og:description" content="An Empirical Demonstration of the Limits of Algorithmic Selection"><meta property="og:url" content="https://algorithmic-choice.github.io/An_Empirical_Demonstration_of_the_Limits_of_Algorithmic_Selection.html"><meta name="citation_title" content="What Does Empirical Evidence Demonstrate About Algorithmic Choice?"><meta name="citation_author" content="Valenzuela Alonso, Nuño"><meta name="citation_doi" content="10.5281/zenodo.24090756"><meta name="citation_pdf_url" content="https://algorithmic-choice.github.io/What_Does_Empirical_Evidence_Demonstrate_About_Algorithmic_Choice_nuno_valenzuela_doi_24090756.pdf"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "ScholarlyArticle", "name": "What Does Empirical Evidence Demonstrate About Algorithmic Choice?", "alternativeHeadline": "An Empirical Demonstration of the Limits of Algorithmic Selection", "author": {"@type": "Person", "name": "Nuño Valenzuela Alonso", "sameAs": "https://orcid.org/0009-0001-6897-3912"}, "identifier": "https://doi.org/10.5281/zenodo.24090756", "url": "https://algorithmic-choice.github.io/An_Empirical_Demonstration_of_the_Limits_of_Algorithmic_Selection.html", "inLanguage": "en", "datePublished": "2026-11", "isAccessibleForFree": true, "encoding": {"@type": "MediaObject", "contentUrl": "https://algorithmic-choice.github.io/What_Does_Empirical_Evidence_Demonstrate_About_Algorithmic_Choice_nuno_valenzuela_doi_24090756.pdf", "encodingFormat": "application/pdf"}, "isPartOf": {"@type": "CreativeWorkSeries", "name": "Algorithmic Choice research"}, "citation": ["https://doi.org/10.5281/zenodo.23647211", "https://doi.org/10.5281/zenodo.23955960"]}</script><style>
+    :root {
+      --violet-dark: #493A29;
+      --violet: #B06C35;
+      --violet-hover: #8E4D21;
+      --violet-muted: #92633F;
+      --lavender: #F6EEE2;
+      --lavender-light: #FCFAF6;
+      --lavender-border: #E7D6BF;
+      --text: #332E28;
+      --muted: #6D6257;
+      --white: #FFFFFF;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--lavender-light);
+      color: var(--text);
+      font-family: "Times New Roman", Times, serif;
+      font-size: 19px;
+      line-height: 1.75;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: var(--lavender);
+      color: var(--violet-dark);
+      padding: 70px 7%;
+      border-bottom: 2px solid var(--lavender-border);
+    }
+
+    .eyebrow {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--violet);
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--violet-dark);
+      font-weight: normal;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 50px);
+      line-height: 1.2;
+      margin: 20px 0;
+      max-width: 950px;
+    }
+
+    h2 {
+      font-size: 29px;
+      line-height: 1.3;
+      margin-top: 0;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #E9DDCC;
+    }
+
+    h3 {
+      font-size: 23px;
+      line-height: 1.35;
+    }
+
+    .subtitle {
+      font-family: Georgia, serif;
+      font-size: 21px;
+      color: var(--violet-muted);
+      max-width: 850px;
+    }
+
+    .author {
+      margin-top: 30px;
+      color: #51405F;
+      font-family: Georgia, serif;
+      font-size: 17px;
+    }
+
+    nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--lavender-border);
+      padding: 14px 7%;
+    }
+
+    nav .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 25px;
+    }
+
+    nav a {
+      font-family: Georgia, serif;
+      font-size: 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    main {
+      max-width: 1080px;
+      margin: 42px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background: var(--white);
+      padding: 38px;
+      border: 1px solid #E9DDCC;
+      border-radius: 12px;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 18px rgba(72,44,96,0.04);
+    }
+
+    p {
+      margin: 0 0 20px;
+    }
+
+    a {
+      color: #684392;
+      text-decoration-color: #B9A3D3;
+      overflow-wrap: anywhere;
+    }
+
+    a:hover {
+      color: var(--violet-hover);
+    }
+
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--violet);
+      outline-offset: 4px;
+    }
+
+    .scientific-formula {
+      background: var(--lavender-light);
+      border: 1px solid var(--lavender-border);
+      border-radius: 9px;
+      padding: 26px 15px;
+      margin: 27px 0;
+      overflow-x: auto;
+      text-align: center;
+      color: var(--violet-dark);
+      font-size: 1.2em;
+    }
+
+    .scientific-formula math {
+      font-family: "Cambria Math", "STIX Two Math", serif;
+    }
+
+    .formula-caption {
+      font-family: Georgia, serif;
+      font-size: 14px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: -12px;
+    }
+
+    .abstract-conclusion {
+      background: var(--lavender-light);
+      border-left: 4px solid var(--violet);
+      padding: 18px 22px;
+      color: var(--violet-dark);
+      margin-top: 28px;
+    }
+
+    .research-accordion {
+      background: var(--white);
+      border: 1px solid var(--lavender-border);
+      border-radius: 10px;
+      margin: 17px 0;
+      overflow: hidden;
+    }
+
+    .research-accordion summary {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 23px 24px;
+      cursor: pointer;
+      font-family: Georgia, serif;
+      font-size: 19px;
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--violet-dark);
+      list-style: none;
+    }
+
+    .research-accordion summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .research-accordion summary::after {
+      content: "+";
+      margin-left: auto;
+      flex-shrink: 0;
+      font-size: 27px;
+      color: var(--violet);
+    }
+
+    .research-accordion[open] summary::after {
+      content: "−";
+    }
+
+    .research-accordion summary:hover {
+      background: #EFF7F8;
+    }
+
+    .research-accordion[open] summary {
+      background: var(--lavender);
+      border-bottom: 1px solid var(--lavender-border);
+    }
+
+    .question-number {
+      flex-shrink: 0;
+      background: #D9EEF0;
+      color: var(--violet);
+      border-radius: 7px;
+      padding: 7px 11px;
+      font-size: 15px;
+    }
+
+    .accordion-content {
+      padding: 28px 30px;
+      line-height: 1.8;
+    }
+
+    .research-conclusion {
+      margin-top: 32px;
+      background: var(--lavender);
+      border-left: 4px solid var(--violet);
+      border-radius: 8px;
+      padding: 30px;
+    }
+
+    .research-conclusion h3 {
+      margin-top: 0;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--violet);
+      color: var(--white);
+      padding: 13px 24px;
+      border-radius: 7px;
+      text-decoration: none;
+      font-family: Georgia, serif;
+      font-size: 16px;
+      font-weight: bold;
+      margin: 12px 10px 12px 0;
+    }
+
+    .button:hover {
+      background: var(--violet-hover);
+      color: var(--white);
+    }
+
+    .button.secondary {
+      background: var(--lavender);
+      color: var(--violet-dark);
+      border: 1px solid var(--lavender-border);
+    }
+
+    .button.secondary:hover {
+      background: #D6E9ED;
+    }
+
+    .metadata {
+      font-family: Georgia, serif;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .viewer {
+      width: 100%;
+      height: 850px;
+      border: 1px solid var(--lavender-border);
+      border-radius: 8px;
+      margin-top: 20px;
+      background: white;
+    }
+
+    .keywords {
+      font-family: Georgia, serif;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    footer {
+      text-align: center;
+      padding: 38px 20px;
+      color: #756783;
+      font-family: Georgia, serif;
+      font-size: 14px;
+      border-top: 1px solid #E9DDCC;
+    }
+
+    @media (max-width: 650px) {
+      body {
+        font-size: 17px;
+      }
+
+      header {
+        padding: 45px 22px;
+      }
+
+      nav {
+        padding: 14px 22px;
+      }
+
+      section {
+        padding: 23px;
+      }
+
+      .research-accordion summary {
+        font-size: 17px;
+        padding: 17px;
+        gap: 12px;
+      }
+
+      .accordion-content {
+        padding: 20px;
+      }
+
+      .scientific-formula {
+        font-size: 0.95em;
+      }
+
+      .viewer {
+        height: 600px;
+      }
+    }
+  
+nav a{color:var(--violet-dark)} nav a:hover{text-decoration:underline} .paper-link{font-size:15px;color:var(--muted)} .result-list{padding-left:1.4em} .result-list li{margin:10px 0} .formula-caption{margin-top:0} .scientific-formula{font-size:1.05em} .scientific-formula math{max-width:100%} .meta-line{font-family:Georgia,serif;color:var(--muted);font-size:15px} .notice{border-left:4px solid var(--violet);padding:15px 20px;background:var(--lavender-light)}
+
+/* Paper 2: independent blue/teal identity, preserving Paper 1 layout */
+.paper-nav .container { display:flex; flex-wrap:wrap; align-items:center; gap:8px 23px; }
+.paper-nav a {display:inline-block; white-space:normal; font-size:14px; line-height:1.5;}
+.back-link {margin:22px 0 0; font: 600 15px/1.5 Georgia,serif;}
+.back-link a {color:var(--violet-dark);text-decoration:none;border-bottom:1px solid var(--violet-muted);}
+.back-link a:hover {color:var(--violet-hover);}
+@media (max-width:650px){.paper-nav .container{gap:8px 16px}.paper-nav a{font-size:14px}}
+
+.paper3-navigation{display:flex;flex-wrap:wrap;gap:12px;margin-top:23px}.paper3-navigation a{border:1px solid var(--lavender-border);border-radius:7px;padding:8px 13px;background:rgba(255,255,255,.62);font:600 14px/1.4 Georgia,serif;color:var(--violet-dark);text-decoration:none}.paper3-navigation a:hover{background:white;border-color:var(--violet)}
+.paper3-stat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:20px 0}.paper3-stat{background:var(--lavender-light);border:1px solid var(--lavender-border);padding:14px;border-radius:9px;text-align:center}.paper3-stat strong{display:block;font:normal 27px Georgia,serif;color:var(--violet-dark)}.paper3-stat span{font:13px Georgia,serif;color:var(--muted)}.paper3-table{width:100%;border-collapse:collapse;font-size:16px}.paper3-table th,.paper3-table td{padding:10px 12px;border-bottom:1px solid var(--lavender-border);text-align:left}.paper3-table th{background:var(--lavender);color:var(--violet-dark)}.paper3-equation{text-align:center;background:var(--lavender-light);border-left:3px solid var(--violet);padding:18px;margin:20px 0;font:21px Georgia,serif;overflow-x:auto}.paper3-note{font-size:16px;color:var(--muted)}@media(max-width:620px){.paper3-stat-grid{grid-template-columns:repeat(2,1fr)}.paper3-table{font-size:13px}.paper3-table th,.paper3-table td{padding:7px}}</style></head><body>
+<header><div class="container"><div class="eyebrow">Algorithmic Choice · Scientific Research · Paper 3</div><h1>What Does Empirical Evidence Demonstrate About Algorithmic Choice?</h1><p class="subtitle">An Empirical Demonstration of the Limits of Algorithmic Selection</p><div class="author"><strong>Nuño Valenzuela Alonso</strong><br>Philosopher and Researcher in Algorithmic Decision-Making and Formal Methods<br><a href="https://orcid.org/0009-0001-6897-3912">ORCID 0009-0001-6897-3912</a> · <a href="https://doi.org/10.5281/zenodo.24090756">DOI 10.5281/zenodo.24090756</a></div><div class="paper3-navigation"><a href="./">Read Paper 1 — What does an algorithmic choice demonstrate?</a><a href="What_does_a_computation_actually_prove.html">Read Paper 2 — What does a computation actually prove?</a></div></div></header>
+<nav aria-label="Paper 3 sections" class="paper-nav"><div class="container"><a href="#abstract">Abstract</a><a href="#method">Method</a><a href="#counterexamples">Empirical witnesses</a><a href="#certificate">Partial evidence</a><a href="#limitations">Limits</a><a href="#publication">Read the paper</a></div></nav><main>
+<section id="abstract"><h2>Abstract</h2><p><strong>What does empirical evidence demonstrate about algorithmic choice?</strong> This paper provides a controlled empirical examination of the distinction between an algorithmic choice, the objective quality of that choice, and the evidence available to justify a comparison between alternatives. Using finite MIN/MAX evaluation structures and archived UCT/PUCT search outcomes, we present explicit counterexamples in which the selected action is not the objectively optimal one.</p><p>More importantly, complete information is not necessary to establish that one alternative is strictly better than another. In a finite evaluation instance, only five observations suffice to certify strict superiority across every completion compatible with the available evidence. Removing one critical observation allows two compatible completions to produce opposite rankings.</p><p>An archived fixed-seed trajectory also shows that increasing computational budget need not monotonically improve the quality of the selected action along that particular run.</p><div class="abstract-conclusion"><strong>The central finding:</strong> an observed selection does not establish optimality; incomplete evidence can nevertheless suffice to prove a strict comparison.</div><p class="paper3-note">The study is self-contained with respect to its numerical demonstrations. Archived search trajectories are empirical witnesses, not independently re-executed runs.</p></section>
+<section id="method"><h2>What is being tested?</h2><p>The paper separates three claims: <strong>the selected action</strong> recorded by a finite-budget algorithm, <strong>the exact MIN/MAX value</strong> of that action in the fully specified synthetic tree, and <strong>what partial evidence can establish</strong> about two alternatives across every compatible completion.</p><p>UCT (Upper Confidence bounds applied to Trees) and PUCT (a prior-guided tree-search rule) return actions under finite search budgets. Their returned actions are compared retrospectively with the exact reference evaluation. The experiments use small synthetic trees and a fixed pseudorandom seed; they are numerical witnesses, not estimates of population error rates.</p><div class="paper3-equation">V*(aᵢ) = min<sub>r</sub> max(x<sub>ir0</sub>, x<sub>ir1</sub>)</div><p class="paper3-note">MAX chooses the larger terminal payoff within each reply; MIN chooses the smallest of the resulting reply values.</p></section>
+<section id="counterexamples"><h2>First result — Four empirical witnesses</h2><p>Four archived UCT/PUCT decisions are suboptimal relative to the exact MIN/MAX objective of their respective synthetic trees. Each positive gap is a concrete counterexample to a universal optimality claim that includes the corresponding configured run.</p><div class="paper3-stat-grid"><div class="paper3-stat"><strong>0.25</strong><span>UCT · aligned</span></div><div class="paper3-stat"><strong>0.25</strong><span>PUCT · aligned</span></div><div class="paper3-stat"><strong>1.05</strong><span>UCT · optimal-last</span></div><div class="paper3-stat"><strong>0.50</strong><span>PUCT · deceptive</span></div></div><div style="overflow-x:auto"><table class="paper3-table"><thead><tr><th>Configuration</th><th>Selected action</th><th>Better legal action</th><th>Gap</th></tr></thead><tbody><tr><td>UCT · aligned</td><td>a₁ = 0.65</td><td>a₀ = 0.90</td><td>0.25</td></tr><tr><td>PUCT · aligned</td><td>a₁ = 0.65</td><td>a₀ = 0.90</td><td>0.25</td></tr><tr><td>UCT · optimal-last</td><td>a₁ = −0.10</td><td>a₅ = 0.95</td><td>1.05</td></tr><tr><td>PUCT · deceptive</td><td>a₂ = 0.40</td><td>a₀ = 0.90</td><td>0.50</td></tr></tbody></table></div><p class="paper3-note">All four selections are preserved records, not newly generated executions. The reference values and arithmetic are documented in the PDF.</p><h3>More computation is not always better at each measured budget</h3><p>In one fixed-seed archived trajectory, the selected MIN/MAX value follows <strong>0.90 → 0.65 → 0.90</strong> as the budget changes from 1 to 2 to 8 simulations. This is a finite non-monotone observation, not a general claim about convergence.</p></section>
+<section id="certificate"><h2>Second result — Five observations can suffice</h2><p>Consider the optimal-last tree with unobserved terminal values allowed to vary independently within [−1, 1]. Five observed leaves give exact bounds for the comparison of a₅ with a₀.</p><div class="paper3-equation">L<sub>E⁺</sub>(a₅) = 0.950 &gt; −0.300 = U<sub>E⁺</sub>(a₀)</div><p>Therefore, <strong>a₅ is strictly superior to a₀ in every compatible completion</strong>, without knowing the remaining terminal values. This is a deterministic certificate, not a statistical confidence interval.</p><h3>What happens when one observation is removed?</h3><p>Removing the observed value 0.950 leaves four observations and admits two completions with opposite rankings:</p><div style="overflow-x:auto"><table class="paper3-table"><thead><tr><th>Compatible completion</th><th>V(a₅)</th><th>V(a₀)</th><th>Result</th></tr></thead><tbody><tr><td>Favorable completion</td><td>1.00</td><td>−1.00</td><td>a₅ &gt; a₀</td></tr><tr><td>Adversarial completion</td><td>−1.00</td><td>−0.30</td><td>a₅ &lt; a₀</td></tr></tbody></table></div><p>The reduced evidence does not determine the ordering. The five-observation certificate is <em>minimal by inclusion</em> within its specified evidence set, not globally minimal among all possible certificates.</p></section>
+<section id="limitations"><h2>Scope, validation and limitations</h2><p>The paper is <strong>self-contained with respect to its numerical demonstrations</strong>: its tables and MIN/MAX arithmetic can be checked without Python or additional software. However, independently re-executing the historical UCT/PUCT choices requires the original implementations, random-number generator, tie-breaking, priors, action ordering, budget definition and environment. These are not supplied with the article.</p><div class="notice"><strong>What is not claimed:</strong> a population error rate, a universal failure of UCT or PUCT, an online certificate available during the historical decisions, external replication, or regulatory certification. The synthetic trees are transparent audit artifacts, not evidence of deployed-system reliability.</div></section>
+<section id="publication"><h2>Scientific publication</h2><h3>What Does Empirical Evidence Demonstrate About Algorithmic Choice?</h3><p class="metadata"><strong>Author:</strong> Nuño Valenzuela Alonso<br><strong>Publication:</strong> November 2026 · 10 pages<br><strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.24090756">10.5281/zenodo.24090756</a></p><a class="button" href="What_Does_Empirical_Evidence_Demonstrate_About_Algorithmic_Choice_nuno_valenzuela_doi_24090756.pdf" target="_blank" rel="noopener">Read full scientific paper (PDF)</a> <a class="button secondary" href="https://doi.org/10.5281/zenodo.24090756" target="_blank" rel="noopener noreferrer">View publication on Zenodo</a><h3>Full paper</h3><iframe class="viewer" src="What_Does_Empirical_Evidence_Demonstrate_About_Algorithmic_Choice_nuno_valenzuela_doi_24090756.pdf#view=FitH" title="Paper 3 full scientific PDF" loading="lazy"></iframe><p class="paper3-note">If the embedded viewer is unavailable, use the PDF link or the Zenodo DOI above.</p></section>
+<section><h2>Continue the research</h2><p>Read the preceding studies on what a selection can demonstrate and when partial evidence can mathematically determine a comparison.</p><a class="button secondary" href="./">Read Paper 1 — What does an algorithmic choice demonstrate?</a> <a class="button secondary" href="What_does_a_computation_actually_prove.html">Read Paper 2 — What does a computation actually prove?</a></section>
+<section><h2>Research keywords</h2><p class="keywords">Empirical evidence · Algorithmic choice · UCT · PUCT · MIN/MAX · Counterexamples · Partial evidence · Mathematical certificates · Reproducibility · Computational epistemology</p></section></main><footer><strong>Algorithmic Choice</strong><br>Nuño Valenzuela Alonso · 2026<br><a href="./">Paper 1</a> · <a href="What_does_a_computation_actually_prove.html">Paper 2</a> · <a href="https://doi.org/10.5281/zenodo.24090756">Paper 3 DOI</a></footer></body></html>
