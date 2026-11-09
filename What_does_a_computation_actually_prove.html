@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What does a computation actually prove?</title>
+<meta name="description" content="Paper 2 by Nuño Valenzuela Alonso: formal characterization of strict dominance under partial evidence in finite MIN/MAX evaluation expressions, with implications for epistemology and Responsible AI.">
+<meta name="author" content="Nuño Valenzuela Alonso">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://algorithmic-choice.github.io/What_does_a_computation_actually_prove.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What does a computation actually prove? From algorithmic choice to formal ethical certification">
+<meta property="og:description" content="From observed algorithmic selection to what partial evidence can mathematically establish.">
+<meta property="og:url" content="https://algorithmic-choice.github.io/What_does_a_computation_actually_prove.html">
+<meta name="citation_title" content="What does a computation actually prove? From algorithmic choice to formal ethical certification">
+<meta name="citation_author" content="Valenzuela Alonso, Nuño">
+<meta name="citation_doi" content="10.5281/zenodo.23955960">
+<meta name="citation_pdf_url" content="https://algorithmic-choice.github.io/paper2.pdf">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ScholarlyArticle","name":"What does a computation actually prove? From algorithmic choice to formal ethical certification","headline":"What does a computation actually prove?","author":{"@type":"Person","name":"Nuño Valenzuela Alonso","sameAs":"https://orcid.org/0009-0001-6897-3912"},"identifier":"https://doi.org/10.5281/zenodo.23955960","url":"https://algorithmic-choice.github.io/What_does_a_computation_actually_prove.html","inLanguage":"en","datePublished":"2026-11-04","isAccessibleForFree":true,"encoding":{"@type":"MediaObject","contentUrl":"https://algorithmic-choice.github.io/paper2.pdf","encodingFormat":"application/pdf"},"isPartOf":{"@type":"CreativeWorkSeries","name":"Algorithmic Choice research"},"citation":"https://doi.org/10.5281/zenodo.23647211","description":"An exact characterization of strict dominance under partial evidence for finite MIN/MAX expressions under independent-interval uncertainty, including shared variables."}
+</script>
+<style>
+    :root {
+      --violet-dark: #39254F;
+      --violet: #72539C;
+      --violet-hover: #533578;
+      --violet-muted: #765C91;
+      --lavender: #F1EBF7;
+      --lavender-light: #F9F7FC;
+      --lavender-border: #DDD0EB;
+      --text: #33283D;
+      --muted: #655671;
+      --white: #FFFFFF;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--lavender-light);
+      color: var(--text);
+      font-family: "Times New Roman", Times, serif;
+      font-size: 19px;
+      line-height: 1.75;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: var(--lavender);
+      color: var(--violet-dark);
+      padding: 70px 7%;
+      border-bottom: 2px solid var(--lavender-border);
+    }
+
+    .eyebrow {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--violet);
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--violet-dark);
+      font-weight: normal;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 50px);
+      line-height: 1.2;
+      margin: 20px 0;
+      max-width: 950px;
+    }
+
+    h2 {
+      font-size: 29px;
+      line-height: 1.3;
+      margin-top: 0;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #E8DFF0;
+    }
+
+    h3 {
+      font-size: 23px;
+      line-height: 1.35;
+    }
+
+    .subtitle {
+      font-family: Georgia, serif;
+      font-size: 21px;
+      color: var(--violet-muted);
+      max-width: 850px;
+    }
+
+    .author {
+      margin-top: 30px;
+      color: #51405F;
+      font-family: Georgia, serif;
+      font-size: 17px;
+    }
+
+    nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--lavender-border);
+      padding: 14px 7%;
+    }
+
+    nav .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 25px;
+    }
+
+    nav a {
+      font-family: Georgia, serif;
+      font-size: 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    main {
+      max-width: 1080px;
+      margin: 42px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background: var(--white);
+      padding: 38px;
+      border: 1px solid #E8DFF0;
+      border-radius: 12px;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 18px rgba(72,44,96,0.04);
+    }
+
+    p {
+      margin: 0 0 20px;
+    }
+
+    a {
+      color: #684392;
+      text-decoration-color: #B9A3D3;
+      overflow-wrap: anywhere;
+    }
+
+    a:hover {
+      color: var(--violet-hover);
+    }
+
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--violet);
+      outline-offset: 4px;
+    }
+
+    .scientific-formula {
+      background: var(--lavender-light);
+      border: 1px solid var(--lavender-border);
+      border-radius: 9px;
+      padding: 26px 15px;
+      margin: 27px 0;
+      overflow-x: auto;
+      text-align: center;
+      color: var(--violet-dark);
+      font-size: 1.2em;
+    }
+
+    .scientific-formula math {
+      font-family: "Cambria Math", "STIX Two Math", serif;
+    }
+
+    .formula-caption {
+      font-family: Georgia, serif;
+      font-size: 14px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: -12px;
+    }
+
+    .abstract-conclusion {
+      background: var(--lavender-light);
+      border-left: 4px solid var(--violet);
+      padding: 18px 22px;
+      color: var(--violet-dark);
+      margin-top: 28px;
+    }
+
+    .research-accordion {
+      background: var(--white);
+      border: 1px solid var(--lavender-border);
+      border-radius: 10px;
+      margin: 17px 0;
+      overflow: hidden;
+    }
+
+    .research-accordion summary {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 23px 24px;
+      cursor: pointer;
+      font-family: Georgia, serif;
+      font-size: 19px;
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--violet-dark);
+      list-style: none;
+    }
+
+    .research-accordion summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .research-accordion summary::after {
+      content: "+";
+      margin-left: auto;
+      flex-shrink: 0;
+      font-size: 27px;
+      color: var(--violet);
+    }
+
+    .research-accordion[open] summary::after {
+      content: "−";
+    }
+
+    .research-accordion summary:hover {
+      background: #F5F0FA;
+    }
+
+    .research-accordion[open] summary {
+      background: var(--lavender);
+      border-bottom: 1px solid var(--lavender-border);
+    }
+
+    .question-number {
+      flex-shrink: 0;
+      background: #EDE4F6;
+      color: var(--violet);
+      border-radius: 7px;
+      padding: 7px 11px;
+      font-size: 15px;
+    }
+
+    .accordion-content {
+      padding: 28px 30px;
+      line-height: 1.8;
+    }
+
+    .research-conclusion {
+      margin-top: 32px;
+      background: var(--lavender);
+      border-left: 4px solid var(--violet);
+      border-radius: 8px;
+      padding: 30px;
+    }
+
+    .research-conclusion h3 {
+      margin-top: 0;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--violet);
+      color: var(--white);
+      padding: 13px 24px;
+      border-radius: 7px;
+      text-decoration: none;
+      font-family: Georgia, serif;
+      font-size: 16px;
+      font-weight: bold;
+      margin: 12px 10px 12px 0;
+    }
+
+    .button:hover {
+      background: var(--violet-hover);
+      color: var(--white);
+    }
+
+    .button.secondary {
+      background: var(--lavender);
+      color: var(--violet-dark);
+      border: 1px solid var(--lavender-border);
+    }
+
+    .button.secondary:hover {
+      background: #E8DDF3;
+    }
+
+    .metadata {
+      font-family: Georgia, serif;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .viewer {
+      width: 100%;
+      height: 850px;
+      border: 1px solid var(--lavender-border);
+      border-radius: 8px;
+      margin-top: 20px;
+      background: white;
+    }
+
+    .keywords {
+      font-family: Georgia, serif;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    footer {
+      text-align: center;
+      padding: 38px 20px;
+      color: #756783;
+      font-family: Georgia, serif;
+      font-size: 14px;
+      border-top: 1px solid #E8DFF0;
+    }
+
+    @media (max-width: 650px) {
+      body {
+        font-size: 17px;
+      }
+
+      header {
+        padding: 45px 22px;
+      }
+
+      nav {
+        padding: 14px 22px;
+      }
+
+      section {
+        padding: 23px;
+      }
+
+      .research-accordion summary {
+        font-size: 17px;
+        padding: 17px;
+        gap: 12px;
+      }
+
+      .accordion-content {
+        padding: 20px;
+      }
+
+      .scientific-formula {
+        font-size: 0.95em;
+      }
+
+      .viewer {
+        height: 600px;
+      }
+    }
+  
+nav a{color:var(--violet-dark)} nav a:hover{text-decoration:underline} .paper-link{font-size:15px;color:var(--muted)} .result-list{padding-left:1.4em} .result-list li{margin:10px 0} .formula-caption{margin-top:0} .scientific-formula{font-size:1.05em} .scientific-formula math{max-width:100%} .meta-line{font-family:Georgia,serif;color:var(--muted);font-size:15px} .notice{border-left:4px solid var(--violet);padding:15px 20px;background:var(--lavender-light)}
+</style>
+</head>
+<body>
+<header><div class="container">
+<div class="eyebrow">Algorithmic Choice · Scientific Research · Paper 2</div>
+<h1>What does a computation actually prove?</h1>
+<p class="subtitle">From algorithmic choice to formal ethical certification</p>
+<div class="author"><strong>Nuño Valenzuela Alonso</strong><br>Researcher in Algorithmic Decision-Making and Formal Methods<br><a href="https://orcid.org/0009-0001-6897-3912">ORCID 0009-0001-6897-3912</a></div>
+</div></header>
+<nav aria-label="Main navigation"><div class="container">
+<a href="/">Read Paper 1 — What does an Algorithmic Choice demonstrate?</a><a href="#abstract">Abstract</a><a href="#results">Main results</a><a href="#questions">Research questions</a><a href="#implications">Implications</a><a href="#publication">Read the paper</a>
+</div></nav>
+<main>
+<section id="abstract"><h2>Abstract</h2>
+<p><strong>What can an observed algorithmic choice establish?</strong> This second article distinguishes an observed selection, the relations mathematically determined by partial evidence, and the additional guarantees needed to justify and certify a strict preference.</p>
+<p>For finite MIN/MAX evaluation expressions under independent-interval uncertainty (H1), including expressions with shared leaf variables, it characterizes when the available evidence guarantees that one alternative is strictly superior to another in every compatible completion. The necessary direction is established by constructing a single compatible completion through threshold clipping.</p>
+<p>The study also distinguishes semantic determination from the soundness of an implemented verifier, illustrates the result with a twelve-leaf example, and discusses the epistemic and ethical limits of computational conclusions.</p>
+<div class="abstract-conclusion"><strong>The central distinction:</strong> what an algorithm selects, what the evidence determines, and what a sound certification procedure can validly attest are different claims.</div>
+</section>
+<section id="results"><h2>Main scientific results</h2>
+<h3>Theorem 1 — Strict dominance under partial evidence</h3>
+<p>Under H1, for finite MIN/MAX expressions, strict superiority of <em>b</em> over <em>a</em> in all completions compatible with evidence <em>E</em> holds if and only if the exact lower extremum of <em>b</em> exceeds the exact upper extremum of <em>a</em>.</p>
+<div class="scientific-formula"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mo>[</mo><mo>∀</mo><mi>γ</mi><mo>∈</mo><mi mathvariant="normal">Compat</mi><mo>(</mo><mi>E</mi><mo>)</mo><mo>:</mo><msub><mi>V</mi><mi>γ</mi></msub><mo>(</mo><mi>b</mi><mo>)</mo><mo>&gt;</mo><msub><mi>V</mi><mi>γ</mi></msub><mo>(</mo><mi>a</mi><mo>)</mo><mo>]</mo><mo>⇔</mo><msub><mi>L</mi><mi>E</mi></msub><mo>(</mo><mi>b</mi><mo>)</mo><mo>&gt;</mo><msub><mi>U</mi><mi>E</mi></msub><mo>(</mo><mi>a</mi><mo>)</mo></mrow></math></div>
+<p class="formula-caption">Theorem 1 · Necessary and sufficient characterization under H1</p>
+<p>The sufficiency of separating valid bounds is classical. The converse in the declared MIN/MAX model uses a common compatible completion and does not require disjoint subtrees. The paper does not claim historical priority over equivalent algebraic characterizations.</p>
+<h3>Other formal results</h3><ul class="result-list">
+<li><strong>Selection is not demonstrated preference.</strong> An observed algorithmic choice does not by itself entail a demonstrated strict preference under a declared standard.</li>
+<li><strong>One valid counterexample refutes a universal claim.</strong> A strictly superior legal alternative disproves universal correctness relative to the specified configuration, domain, and objective.</li>
+<li><strong>Consistent evidence extension preserves determination.</strong> A relation already determined remains so when compatible completions are restricted consistently under unchanged semantics.</li>
+<li><strong>Certification requires additional guarantees.</strong> Mathematical determination alone does not establish that any concrete verifier is sound.</li>
+</ul>
+</section>
+<section id="questions"><h2>Research questions</h2>
+<p>The same academic presentation as Paper 1, now focused on the positive mathematical characterization developed in Paper 2.</p>
+<details class="research-accordion"><summary><span class="question-number">01</span><span>When can partial evidence prove strict superiority?</span></summary><div class="accordion-content"><p>Under the declared finite MIN/MAX model and H1, exact lower and upper extrema provide a necessary and sufficient test for strict dominance in all compatible completions. The condition is semantic; its satisfaction does not automatically certify an implementation.</p></div></details>
+<details class="research-accordion"><summary><span class="question-number">02</span><span>Why do shared variables matter in the proof?</span></summary><div class="accordion-content"><p>The lower extremum of one expression and the upper extremum of another may be attained in different assignments. Lemma 4 constructs one common compatible completion using threshold clipping, preserving the identity of shared variables and showing why non-separation defeats universal strict dominance.</p></div></details>
+<details class="research-accordion"><summary><span class="question-number">03</span><span>What is established by the twelve-leaf example?</span></summary><div class="accordion-content"><p>Five observed leaves establish strict superiority in the specified tree. Removing any one observation permits both favorable and unfavorable compatible completions. This demonstrates inclusion-minimality of that evidence set, not global minimality across all possible certificates.</p><div class="scientific-formula"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><msub><mi>L</mi><msup><mi>E</mi><mo>+</mo></msup></msub><mo>(</mo><msub><mi>a</mi><mn>5</mn></msub><mo>)</mo><mo>=</mo><mn>0.95</mn><mo>&gt;</mo><mo>−</mo><mn>0.30</mn><mo>=</mo><msub><mi>U</mi><msup><mi>E</mi><mo>+</mo></msup></msub><mo>(</mo><msub><mi>a</mi><mn>0</mn></msub><mo>)</mo></mrow></math></div></div></details>
+<details class="research-accordion"><summary><span class="question-number">04</span><span>What separates mathematical proof from computational certification?</span></summary><div class="accordion-content"><p>Theorem 1 characterizes a mathematical property. A software certificate requires separate evidence of soundness, provenance, admissibility, and correct correspondence with the declared comparison standard. The paper does not claim that any particular implementation has been formally verified.</p></div></details>
+</section>
+<section id="implications"><h2>Epistemic and ethical implications</h2>
+<div class="research-conclusion"><h3>What the computation proves — and what it does not</h3><p>Correctness relative to an objective function is not, by itself, moral justification under an independent normative framework. This is a separate logical-philosophical distinction, not a consequence of the MIN/MAX theorem.</p><p>The research offers a basis for examining evidential claims in Responsible AI: distinguish observed outcomes, demonstrated comparisons, and certificates whose validity depends on additional guarantees.</p></div>
+<p class="meta-line">Applications to formal verification, UCT/PUCT audits, and Responsible AI are discussed conditionally; the paper does not establish regulatory compliance or general algorithmic correctness.</p>
+</section>
+<section id="publication"><h2>Scientific publication</h2><h3>What does a computation actually prove?</h3>
+<p class="metadata"><strong>Author:</strong> Nuño Valenzuela Alonso<br><strong>Publication:</strong> Preprint · November 2026 · 58 pages<br><strong>DOI:</strong> <a href="https://doi.org/10.5281/zenodo.23955960">10.5281/zenodo.23955960</a><br><strong>License:</strong> CC BY 4.0</p>
+<a class="button" href="paper2.pdf" target="_blank" rel="noopener">Read full scientific paper (PDF)</a>
+<a class="button secondary" href="https://doi.org/10.5281/zenodo.23955960" target="_blank" rel="noopener noreferrer">View on Zenodo</a>
+<a class="button secondary" href="https://www.researchgate.net/publication/417647344_What_does_a_Computation_actually_Prove_From_Algorithmic_Choice_to_Formal_Ethical_Certification" target="_blank" rel="noopener noreferrer">View on ResearchGate</a>
+<h3>Full paper</h3><iframe class="viewer" src="paper2.pdf#view=FitH" title="Paper 2 full scientific paper PDF" loading="lazy"></iframe>
+<p class="metadata">If the embedded viewer is unavailable, use the PDF link above.</p>
+</section>
+<section><h2>Research continuity</h2><p><strong>Paper 1</strong> examines what cannot be inferred from an observed algorithmic selection alone. <strong>Paper 2</strong> asks what partial evidence can positively determine, under explicit mathematical assumptions.</p><a class="button secondary" href="/">Read Paper 1 — What does an Algorithmic Choice demonstrate?</a></section>
+<section><h2>Research keywords</h2><p class="keywords">Algorithmic choice · Partial evidence · MIN/MAX evaluation · Exact semantic extrema · Strict dominance · Demonstrated preference · Formal verification · Computational epistemology · Responsible AI · Ethical justification</p></section>
+</main>
+<footer><strong>Algorithmic Choice</strong><br>Nuño Valenzuela Alonso · 2026<br><a href="/">Read Paper 1</a> · <a href="https://doi.org/10.5281/zenodo.23955960">Paper 2 DOI</a></footer>
+</body></html>
